@@ -33,3 +33,8 @@
 
   <Permissions>ReadWriteMailbox</Permissions>
 </OfficeApp>
+
+  </FormSettings>
+
+  <Permissions>ReadWriteMailbox</Permissions>
+</OfficeApp>

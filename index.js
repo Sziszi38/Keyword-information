@@ -1,36 +1,37 @@
-Office.initialize = function (reason) {
-  $(document).ready(function () {
-    var item = Office.context.mailbox.item;
-    var keywords = {};
+Office.onReady((info) => {
+  if (info.host === Office.HostType.Outlook) {
+    // Initialize the add-in
+    initializeAddIn();
+  }
+});
 
-    // Function to check for keywords in the email body
-    function checkForKeywords(bodyText) {
-      for (var keyword in keywords) {
-        if (bodyText.includes(keyword)) {
-          document.getElementById("result").innerText = "Pop-up Word: " + keywords[keyword];
-          break;
-        }
+function initializeAddIn() {
+  // Add an event listener for the ItemChanged event
+  Office.context.mailbox.item.addHandlerAsync(Office.EventType.ItemChanged, onItemChanged);
+}
+
+function onItemChanged(eventArgs) {
+  // Get the body of the email
+  Office.context.mailbox.item.body.getAsync("text", (result) => {
+    if (result.status === Office.AsyncResultStatus.Succeeded) {
+      const emailBody = result.value;
+      // Check if the keyword exists in the email body
+      if (emailBody.includes("Valeo")) {
+        // Perform the desired action
+        showKeywordDetectedMessage();
       }
+    } else {
+      console.error("Failed to get email body:", result.error);
     }
-
-    // Get the email body and check for keywords
-    if (item.body.getAsync) {
-      item.body.getAsync("text", function (result) {
-        if (result.status === Office.AsyncResultStatus.Succeeded) {
-          var bodyText = result.value;
-          checkForKeywords(bodyText);
-        }
-      });
-    }
-
-    // Add new keyword and pop-up word
-    document.getElementById("keywordForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      var keyword = document.getElementById("keyword").value;
-      var popupWord = document.getElementById("popupWord").value;
-      keywords[keyword] = popupWord;
-      document.getElementById("keywordForm").reset();
-      alert("Keyword and pop-up word added!");
-    });
   });
-};
+}
+
+function showKeywordDetectedMessage() {
+  // Display a message to the user
+  Office.context.mailbox.item.notificationMessages.addAsync("keywordDetected", {
+    type: "informationalMessage",
+    message: "Keyword 'Valeo' detected in the email.",
+    icon: "iconid",
+    persistent: true
+  });
+}

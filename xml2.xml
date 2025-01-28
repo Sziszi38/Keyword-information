@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:type="TaskPaneApp">
-  <Id>your-add-in-id</Id>
+           xsi:type="MailApp">
+  <Id>dce5f6c0-bf6d-4d4d-8b9d-123456789abc</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Your Provider Name</ProviderName>
+  <ProviderName>Sziszi38</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Keyword Trigger Add-in" />
   <Description DefaultValue="An add-in that triggers actions based on keywords." />
-  <IconUrl DefaultValue="https://example.com/icon.png" />
-  <HighResolutionIconUrl DefaultValue="https://example.com/highresicon.png" />
-  <SupportUrl DefaultValue="https://sziszi38.github.io/Keyword-information/" />
+  <IconUrl DefaultValue="https://sziszi38.github.io/Keyword-information/icon.png" />
+  <HighResolutionIconUrl DefaultValue="https://sziszi38.github.io/Keyword-information/highresicon.png" />
+  <SupportUrl DefaultValue="https://sziszi38.github.io/Keyword-information/support" />
 
   <Hosts>
-    <Host Name="Document" />
+    <Host Name="Mailbox" />
   </Hosts>
-  
+
   <Requirements>
     <Sets DefaultMinVersion="1.1">
-      <Set Name="OfficeHost" MinVersion="1.1" />
+      <Set Name="Mailbox" MinVersion="1.1" />
     </Sets>
   </Requirements>
 
-  <DefaultSettings>
-    <SourceLocation DefaultValue="https://example.com/index.html" />
-  </DefaultSettings>
-  
-  <Permissions>ReadWriteDocument</Permissions>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://sziszi38.github.io/Keyword-information/index.html" />
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadWriteMailbox</Permissions>
 </OfficeApp>

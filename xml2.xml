@@ -37,8 +37,3 @@
     <Rule xsi:type="ItemHasRegularExpressionMatch" PropertyName="BodyAsPlaintext" RegExName="Keyword" RegExValue="Valeo" />
   </Rule>
 </OfficeApp>
-
-  <Rule xsi:type="RuleCollection" Mode="Or">
-    <Rule xsi:type="ItemHasRegularExpressionMatch" PropertyName="BodyAsPlaintext" RegExName="Keyword" RegExValue="Valeo" />
-  </Rule>
-</OfficeApp>

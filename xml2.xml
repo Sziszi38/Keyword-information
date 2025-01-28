@@ -10,7 +10,7 @@
   <Description DefaultValue="An add-in that triggers actions based on keywords." />
   <IconUrl DefaultValue="https://example.com/icon.png" />
   <HighResolutionIconUrl DefaultValue="https://example.com/highresicon.png" />
-  <SupportUrl DefaultValue="https://example.com/support" />
+  <SupportUrl DefaultValue="https://sziszi38.github.io/Keyword-information/" />
 
   <Hosts>
     <Host Name="Document" />

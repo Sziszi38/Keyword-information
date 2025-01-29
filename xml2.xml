@@ -25,8 +25,9 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
+        <!-- Adjusted RequestedHeight to 250, which is within the allowed range -->
         <SourceLocation DefaultValue="https://sziszi38.github.io/Keyword-information/index.html" />
-        <RequestedHeight>500</RequestedHeight> <!-- Increase height for better UI space -->
+        <RequestedHeight>250</RequestedHeight> <!-- Valid height for task pane -->
       </DesktopSettings>
     </Form>
   </FormSettings>

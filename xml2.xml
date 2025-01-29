@@ -25,9 +25,9 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <!-- RequestedHeight set to 200px, within allowed range (50 to 250px) -->
+        <!-- Correct RequestedHeight value set to 250px, which is valid -->
         <SourceLocation DefaultValue="https://sziszi38.github.io/Keyword-information/index.html" />
-        <RequestedHeight>200</RequestedHeight> <!-- Valid height within constraints -->
+        <RequestedHeight>250</RequestedHeight> <!-- Max valid height is 250px -->
       </DesktopSettings>
     </Form>
   </FormSettings>

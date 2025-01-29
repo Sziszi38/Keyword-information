@@ -31,9 +31,18 @@
     </Form>
   </FormSettings>
 
+  <!-- Permissions: ReadWriteMailbox allows reading/writing email contents -->
   <Permissions>ReadWriteMailbox</Permissions>
 
+  <!-- Rule for triggering on specific keyword in the email body (you can adjust this) -->
   <Rule xsi:type="RuleCollection" Mode="Or">
+    <!-- Example rule to match 'Valeo' keyword -->
     <Rule xsi:type="ItemHasRegularExpressionMatch" PropertyName="BodyAsPlaintext" RegExName="Keyword" RegExValue="Valeo" />
   </Rule>
+
+  <!-- Custom Action Button that will call your JavaScript when clicked -->
+  <Action xsi:type="ShowTaskpane">
+    <SourceLocation DefaultValue="https://sziszi38.github.io/Keyword-information/index.html" />
+    <Label DefaultValue="Keyword Trigger" />
+  </Action>
 </OfficeApp>
